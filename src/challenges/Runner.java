@@ -35,7 +35,48 @@ public class Runner {
             sum += Character.getNumericValue(numberAsString.charAt(0));
         }
 
-        System.out.println(sum);
         return sum;
+    }
+
+    private static int stringRepresentation(int number) {
+        if (number > 9999) {
+            System.out.println("Not allowed!");
+            return -1;
+        }
+
+        String out = "";
+        String numberAsString = Integer.toString(number);
+
+        for (int i = 0; i < numberAsString.length(); i++) {
+            char current = numberAsString.charAt(0);
+
+        }
+
+        return 0;
+    }
+
+    private static String getStrHelper(int num) {
+        switch(num) {
+            case 1:
+                return "one";
+            case 2:
+                return "two";
+            case 3:
+                return "three";
+            case 4:
+                return "four";
+            case 5:
+                return "five";
+            case 6:
+                return "six";
+            case 7:
+                return "seven";
+            case 8:
+                return "eight";
+            case 9:
+                return "nine";
+            default:
+                return "";
+        }
     }
 }
