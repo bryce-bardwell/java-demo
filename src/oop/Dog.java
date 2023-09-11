@@ -5,6 +5,27 @@ public class Dog {
     private String name;
     private String breed;
     private int age;
+    public static String animalType = "Canine";
+
+    public static String getAnimalType() {
+        return animalType;
+    }
+
+    public static void setAnimalType(String animalType) {
+        Dog.animalType = animalType;
+    }
+
+    public Dog(String name) {
+        this.name = name;
+        System.out.println("Woof! Dog made named " + name);
+    }
+
+    public Dog(String name, String breed, int age) {
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+        System.out.println("Woof! Dog made named " + name + ", of breed" + breed + " and " + age + " years old");
+    }
 
     public String getName() {
         return name;

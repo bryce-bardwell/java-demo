@@ -3,13 +3,14 @@ package oop;
 public class Runner {
 
     public static void main(String[] args) {
-        Dog dog = new Dog();
+        Dog firstDog = new Dog("Jupiter");
+        Dog secondDog = new Dog("Jupiter", "Alsation", 20);
 
-        dog.setName("Jupiter");
-        dog.setAge(4);
-        dog.setBreed("Alsation");
+        System.out.println(firstDog.giveInfo());
+        System.out.println(secondDog.giveInfo());
 
-        System.out.println(dog.giveInfo());
+        System.out.println(Dog.animalType);
+        System.out.println(firstDog.getAnimalType());
     }
 
 }
