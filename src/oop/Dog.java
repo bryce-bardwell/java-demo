@@ -51,7 +51,7 @@ public class Dog {
         this.age = age;
     }
 
-    public String giveInfo() {
+    public String toString() {
         return "My name is " + this.name + ", I am a " + this.breed + ", and I am " + this.age + " years old!";
     }
 }
