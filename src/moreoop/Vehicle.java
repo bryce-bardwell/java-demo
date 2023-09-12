@@ -1,6 +1,6 @@
 package moreoop;
 
-public class Vehicle {
+public abstract class Vehicle {
 
     private final String make;
     private final int numberOfWheels;
@@ -40,7 +40,5 @@ public class Vehicle {
         System.out.println("This is a " + make + " with " + numberOfWheels + " wheels.");
     }
 
-    public double getBill() {
-        return 0.0;
-    }
+    public abstract double getBill();
 }
