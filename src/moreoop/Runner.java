@@ -16,10 +16,11 @@ public class Runner {
         garage.addVehicle(plane);
         garage.addVehicle(bicycle);
 
+        System.out.println("\nBefore removing...");
         garage.printGarage();
-        System.out.println();
         garage.getBills();
 
+        System.out.println("\n...After removing");
         garage.removeVehiclesByType("Car");
         garage.printGarage();
     }
