@@ -1,8 +1,11 @@
 package challenges;
 
+import java.util.Objects;
+
 public class Runner {
     public static void main(String[] args) {
-        stringRepresentation(5373);
+        String ans = stringRepresentation(8810);
+        System.out.println(ans);
     }
 
     private static void printStr(String str) {
@@ -38,78 +41,30 @@ public class Runner {
         return sum;
     }
 
-    private static String stringDigitHelper(String[] array, int digit, String numString) {
-        return array[Character.getNumericValue(numString.charAt(digit))];
-    }
+    //better
+    private static String stringRepresentation(int number) {
+        String[] digits = {"", "One", "Two", "Three", "Four", "Five",
+                "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen",
+                "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 
-    //bad
-    private static StringBuilder stringRepresentation(int number) {
-        String numberAsString = Integer.toString(number);
-        StringBuilder output = new StringBuilder();
+        String[] tens = {"", "", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
-        String[] tens = {"", "ten", "twenty", "thirty", "forty", "fifty",
-                "sixty", "seventy", "eighty", "ninety"};
-
-        String[] teens = {"", "eleven", "twelve", "thirteen", "fourteen",
-        "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-
-        String[] singles = {"", "one", "two", "three", "four", "five",
-        "six", "seven", "eight", "nine"};
-
-        if (number >= 1000) {
-            output.append(stringDigitHelper(singles, 0, numberAsString));
-            output.append(" thousand ");
-            output.append(stringDigitHelper(singles, 1, numberAsString));
-
-            if (Character.getNumericValue(numberAsString.charAt(1)) != 0) {
-                output.append(" hundred ");
+        if (number == 0) {
+            return digits[0];
+        } else if (number < 20) {
+            return digits[number];
+        } else if (number < 100) {
+            return tens[number / 10] + " " + digits[number % 10];
+        } else if (number < 1000) {
+            if (Objects.equals(stringRepresentation((number % 100)), "")) {
+                return digits[number / 100] + " Hundred " + stringRepresentation(number % 100);
+            } else {
+                return digits[number / 100] + " Hundred and " + stringRepresentation(number % 100);
             }
-
-            output.append(stringDigitHelper(tens, 2, numberAsString));
-            output.append(stringDigitHelper(singles, 3, numberAsString));
+        } else if (number < 10000) {
+            return digits[number / 1000] + " Thousand " + stringRepresentation(number % 1000);
         }
 
-        else if (number >= 100) {
-            output.append(stringDigitHelper(singles, 0, numberAsString));
-            output.append(" hundred and ");
-            output.append(stringDigitHelper(tens, 1, numberAsString));
-            output.append(stringDigitHelper(singles, 2, numberAsString));
-        }
-
-        else if (number >= 10) {
-            output.append(stringDigitHelper(teens, 1, numberAsString));
-        }
-
-        else if (number >= 0) {
-            output.append(stringDigitHelper(singles, 0, numberAsString));
-        }
-
-        System.out.println(output);
-        return output;
-    }
-
-    private static String getStrHelper(int num) {
-        switch(num) {
-            case 1:
-                return "one";
-            case 2:
-                return "two";
-            case 3:
-                return "three";
-            case 4:
-                return "four";
-            case 5:
-                return "five";
-            case 6:
-                return "six";
-            case 7:
-                return "seven";
-            case 8:
-                return "eight";
-            case 9:
-                return "nine";
-            default:
-                return "";
-        }
+        return "";
     }
 }

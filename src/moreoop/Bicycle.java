@@ -2,11 +2,21 @@ package moreoop;
 
 public class Bicycle extends Vehicle {
 
-    public Bicycle(String make, int numberOfWheels) {
+    private int bikeGear;
+    private int wheelRadius;
+
+    public Bicycle(String make, int numberOfWheels, int wheelRadius) {
         super(make, numberOfWheels);
+        this.setWheelRadius(wheelRadius);
     }
 
-    private int bikeGear;
+    public int getWheelRadius() {
+        return wheelRadius;
+    }
+
+    public void setWheelRadius(int wheelRadius) {
+        this.wheelRadius = wheelRadius;
+    }
 
     public int getBikeGear() {
         return bikeGear;
