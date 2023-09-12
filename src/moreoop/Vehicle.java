@@ -1,8 +1,18 @@
 package moreoop;
 
 public class Vehicle {
+
     private final String make;
     private final int numberOfWheels;
+    private int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public Vehicle(String make, int numberOfWheels) {
         this.make = make;
@@ -14,6 +24,7 @@ public class Vehicle {
         return "Vehicle{" +
                 "make='" + make + '\'' +
                 ", numberOfWheels=" + numberOfWheels +
+                ", ID=" + ID +
                 '}';
     }
 

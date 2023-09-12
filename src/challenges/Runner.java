@@ -2,7 +2,7 @@ package challenges;
 
 public class Runner {
     public static void main(String[] args) {
-        stringRepresentation(100);
+        stringRepresentation(5373);
     }
 
     private static void printStr(String str) {
@@ -38,6 +38,10 @@ public class Runner {
         return sum;
     }
 
+    private static String stringDigitHelper(String[] array, int digit, String numString) {
+        return array[Character.getNumericValue(numString.charAt(digit))];
+    }
+
     //bad
     private static StringBuilder stringRepresentation(int number) {
         String numberAsString = Integer.toString(number);
@@ -53,37 +57,36 @@ public class Runner {
         "six", "seven", "eight", "nine"};
 
         if (number >= 1000) {
-            output.append(singles[Character.getNumericValue(numberAsString.charAt(0))]);
+            output.append(stringDigitHelper(singles, 0, numberAsString));
             output.append(" thousand ");
-            output.append(singles[Character.getNumericValue(numberAsString.charAt(1))]);
+            output.append(stringDigitHelper(singles, 1, numberAsString));
 
             if (Character.getNumericValue(numberAsString.charAt(1)) != 0) {
                 output.append(" hundred ");
             }
 
-            output.append(tens[Character.getNumericValue(numberAsString.charAt(2))]);
-            output.append(singles[Character.getNumericValue(numberAsString.charAt(3))]);
+            output.append(stringDigitHelper(tens, 2, numberAsString));
+            output.append(stringDigitHelper(singles, 3, numberAsString));
         }
 
         else if (number >= 100) {
-            output.append(singles[Character.getNumericValue(numberAsString.charAt(0))]);
-            output.append(" hundred ");
-            output.append(tens[Character.getNumericValue(numberAsString.charAt(1))]);
-            output.append(singles[Character.getNumericValue(numberAsString.charAt(2))]);
+            output.append(stringDigitHelper(singles, 0, numberAsString));
+            output.append(" hundred and ");
+            output.append(stringDigitHelper(tens, 1, numberAsString));
+            output.append(stringDigitHelper(singles, 2, numberAsString));
         }
 
         else if (number >= 10) {
-            output.append(teens[Character.getNumericValue(numberAsString.charAt(1))]);
+            output.append(stringDigitHelper(teens, 1, numberAsString));
         }
 
         else if (number >= 0) {
-            output.append(singles[Character.getNumericValue(numberAsString.charAt(0))]);
+            output.append(stringDigitHelper(singles, 0, numberAsString));
         }
 
         System.out.println(output);
         return output;
     }
-
 
     private static String getStrHelper(int num) {
         switch(num) {
