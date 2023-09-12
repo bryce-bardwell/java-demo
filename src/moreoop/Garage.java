@@ -43,11 +43,15 @@ public class Garage {
         this.vehicles = new ArrayList<>();
     }
 
-    public void getBills() {
+    public double getBills() {
+        double totalBill = 0;
+
         for (Vehicle vehicle : vehicles) {
             System.out.println("Getting bill for: " + vehicle);
-            System.out.println("£" + bill(vehicle));
+            totalBill += bill(vehicle);
         }
+
+        return totalBill;
     }
 
     public double bill(Vehicle vehicle) {
