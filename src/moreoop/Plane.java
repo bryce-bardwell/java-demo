@@ -25,4 +25,9 @@ public class Plane extends Vehicle {
     public void setGearDown(boolean gearDown) {
         this.gearDown = gearDown;
     }
+
+    @Override
+    public double getBill() {
+        return this.numberOfSeats * 500;
+    }
 }

@@ -25,4 +25,9 @@ public class Car extends Vehicle {
     public void setCarGear(int carGear) {
         this.carGear = carGear;
     }
+
+    @Override
+    public double getBill() {
+        return this.numberOfSeats * 500;
+    }
 }

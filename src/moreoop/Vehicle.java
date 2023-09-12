@@ -39,4 +39,8 @@ public class Vehicle {
     public void giveInfo() {
         System.out.println("This is a " + make + " with " + numberOfWheels + " wheels.");
     }
+
+    public double getBill() {
+        return 0.0;
+    }
 }

@@ -29,4 +29,9 @@ public class Bicycle extends Vehicle {
     public void wheelie() {
         System.out.println("Doing a wheelie");
     }
+
+    @Override
+    public double getBill() {
+        return this.wheelRadius * 45;
+    }
 }

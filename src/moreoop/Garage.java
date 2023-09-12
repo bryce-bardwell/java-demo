@@ -51,13 +51,7 @@ public class Garage {
     }
 
     public double bill(Vehicle vehicle) {
-        if (vehicle instanceof Car) {
-            return ((Car) vehicle).getNumberOfSeats() * 500;
-        } else if (vehicle instanceof Bicycle) {
-            return ((Bicycle) vehicle).getWheelRadius() * 45;
-        } else {
-            return ((Plane) vehicle).getNumberOfSeats() * 500;
-        }
+        return vehicle.getBill();
     }
 
     public void removeVehiclesByType(String type) {
