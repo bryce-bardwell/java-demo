@@ -38,7 +38,7 @@ public class Runner {
         return sum;
     }
 
-    //bad 
+    //bad
     private static StringBuilder stringRepresentation(int number) {
         String numberAsString = Integer.toString(number);
         StringBuilder output = new StringBuilder();
