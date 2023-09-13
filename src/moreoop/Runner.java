@@ -1,8 +1,10 @@
 package moreoop;
 
+import java.util.ArrayList;
+
 public class Runner {
 
-    public static void main(String[] args) {
+    public static <List> void main(String[] args) {
 
         Car car = new Car("BMW", 4, 5);
         Car secondCar = new Car("Mercedes", 4, 4);
@@ -16,12 +18,20 @@ public class Runner {
         garage.addVehicle(plane);
         garage.addVehicle(bicycle);
 
-        System.out.println("\nBefore removing...");
-        garage.printGarage();
-        garage.getBills();
+        //System.out.println("\nBefore removing...");
+        //garage.printGarage();
+        //garage.getBills();
 
-        System.out.println("\n...After removing");
+        //System.out.println("\n...After removing");
         garage.removeVehiclesByType("Car");
-        garage.printGarage();
+        //garage.printGarage();
+
+        ArrayList<Flyable> flyables = new ArrayList<>();
+        flyables.add(new Bird());
+        flyables.add(new Plane("Boeing", 6, 500));
+
+        for (Flyable f : flyables) {
+            f.fly();
+        }
     }
 }

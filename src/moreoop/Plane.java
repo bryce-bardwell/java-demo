@@ -1,6 +1,6 @@
 package moreoop;
 
-public class Plane extends Vehicle {
+public class Plane extends Vehicle implements Flyable {
 
     private boolean gearDown;
     private int numberOfSeats;
@@ -29,5 +29,10 @@ public class Plane extends Vehicle {
     @Override
     public double getBill() {
         return this.numberOfSeats * 500;
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Vroom");
     }
 }
