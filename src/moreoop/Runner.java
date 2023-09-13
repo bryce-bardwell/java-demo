@@ -30,8 +30,9 @@ public class Runner {
         flyables.add(new Bird());
         flyables.add(new Plane("Boeing", 6, 500));
 
-        for (Flyable f : flyables) {
-            f.fly();
-        }
+        Shed<Vehicle> shed = new Shed<>();
+        shed.setVehicle(plane);
+
+        shed.getVehicleInfo();
     }
 }
